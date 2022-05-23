@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+import img from './icona.png';
 import {getOrders, getUsers} from './api/index.js';
-import { Fragment } from 'react';
 import List from './components/List';
 
 
@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={img} className="App-logo" alt="logo" />
 
 
         <List></List>

@@ -4,7 +4,6 @@ const getOrders= async ()=>{
     
     try{
         const {data: list}= await axios.get('/orders');
-        console.log({list});
         return list;
     }catch(e){
         console.log(e);
@@ -15,7 +14,6 @@ const getOrders= async ()=>{
 const getUsers= async ()=>{
     try{
        const {data: list}= await axios.get('/users');
-        console.log({list});
         return list;
     }catch(e){
         console.log(e);

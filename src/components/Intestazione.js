@@ -1,6 +1,5 @@
 const Intestazione = ({ isUt }) => {
     
-    //const [ut, setUt] = useState(true);
     const stileleggi = {
         backgroundColor: '#282c34',
         borderRadius: '10px',

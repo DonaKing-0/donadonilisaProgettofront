@@ -6,7 +6,7 @@ import Intestazione from "./Intestazione";
 
 
 
-const List = (/*{ addedProducts }*/) => {
+const List = () => {
 
     const stileleggi = {
         backgroundColor: '#282c34',
@@ -26,10 +26,8 @@ const List = (/*{ addedProducts }*/) => {
         (async () => {
             const listaut = await getUsers();
             const listacomm = await getOrders();
-            console.log({ listaut })
             setUser(listaut);
             setList(listaut);
-            console.log({ listacomm })
             setOrder(listacomm)
         })();
 
@@ -41,49 +39,15 @@ const List = (/*{ addedProducts }*/) => {
 
 
 
-
-
-    //non inserisce update
-    const agg = (elem, filtro) => {
-        console.log(filtro);
-        // db.tasks.insert(elem);
-        /* const nuova =db.tasks.list();
- console.log(db.tasks.list())
-         setList(nuova);*/
-        //select(filtro);
-        document.getElementById('idbottone').click();
-    }
-
-    /* const select=(filtro)=>{
-         if(filtro=='attive'){
-             const filt= db.tasks.getnotcomplete();
-             setList(filt);
-         }else if(filtro=='fatte'){
-             const filt= db.tasks.getcomplete();
-             setList(filt);
-         }else{
-             const nuova =db.tasks.list();
-             setList(nuova);
-         }
-     }
- 
-  const forceUpdate = useForceUpdate();
-         function useForceUpdate(){
-             const [value, setValue] = useState(0); // integer state
-             return () => setValue(value => value + 1); // update the state to force render
-         }*/
-
     const select = (filtro) => {
         if (filtro == 'utenti') {
             setList(user);
             setIsUt(true);
-            console.log("Cambiato in utenti: ")
-            console.log(list);            
+            console.log("Cambiato in utenti: ")          
         } else {
             setList(orders);
             setIsUt(false);
             console.log("Cambiato in ordini: ")
-            console.log(list);
         }
     }
 
@@ -94,8 +58,6 @@ const List = (/*{ addedProducts }*/) => {
                 <Opzioni select={select}></Opzioni>
 
                 <Intestazione isUt={isUt}></Intestazione>
-
-
 
                 <div className="btn-group dropup" style={{ 'display': 'none' }}>
                     <button type="button" className="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style={{ 'margin': '5px', 'height': '42px', 'width': '42px' }}></button>
@@ -110,14 +72,12 @@ const List = (/*{ addedProducts }*/) => {
             <br></br>
             {
                 list.map((element) => {
-                    return <Riga key={element.id} element={element} isUt={isUt}></Riga>;
+                    return <Riga key={element.id} element={element} isUt={isUt} listaUtenti={user}></Riga>;
                 })}
         </div>
 
     )
 };
-
-
 
 
 export default List;

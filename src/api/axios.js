@@ -1,6 +1,6 @@
 import axios from "axios";
 
-console.log()
+
 const instance = axios.create({
     // .. where we make our configurations
         baseURL: "https://zenithar-dev.herokuapp.com",
